@@ -1,257 +1,239 @@
 import Link from 'next/link'
+import { Key, Shield, Calculator, ArrowRight, CheckCircle, Users, Zap } from 'lucide-react'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-import { 
-  Key, Calculator, TrendingUp, GraduationCap, Shield, 
-  ArrowRight, CheckCircle, Star, Building2, Users 
-} from 'lucide-react'
-
-const features = [
-  {
-    icon: <Calculator className="w-6 h-6" />,
-    title: 'DubiKey Score',
-    description: 'Instantly assess if you can comfortably afford your off-plan property with our AI-powered calculator.',
-    href: '/calculator',
-    cta: 'Calculate Now',
-  },
-  {
-    icon: <TrendingUp className="w-6 h-6" />,
-    title: 'For Investors',
-    description: 'Expert insights, market analysis, and personalized consultations to maximize your returns.',
-    href: '/investors',
-    cta: 'Learn More',
-  },
-  {
-    icon: <GraduationCap className="w-6 h-6" />,
-    title: 'For Brokers',
-    description: 'Comprehensive training programs and resources to launch and grow your real estate career.',
-    href: '/brokers',
-    cta: 'Start Learning',
-  },
-]
-
-const stats = [
-  { value: '100+', label: 'Properties Analyzed' },
-  { value: '50+', label: 'Investors Helped' },
-  { value: '4.9', label: 'Client Rating' },
-]
-
-const benefits = [
-  'Instant risk assessment',
-  'Detailed cash flow analysis',
-  'Post-handover projections',
-  'Expert recommendations',
-]
 
 export default function Home() {
   return (
     <main className="min-h-screen">
       <Navbar />
       
-      {/* Hero Section */}
+      {/* Hero Section - NEW */}
       <section className="relative pt-32 pb-20 px-4 overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0 dubai-pattern opacity-50" />
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gold-500/5 rounded-full blur-3xl" />
+        {/* Background decoration */}
+        <div className="absolute inset-0 dubai-pattern opacity-30" />
+        <div className="absolute top-20 left-1/4 w-72 h-72 bg-gold-500/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-gold-500/5 rounded-full blur-3xl" />
         
-        <div className="relative max-w-7xl mx-auto">
-          <div className="text-center max-w-4xl mx-auto">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-500 text-sm font-medium mb-8 animate-fade-in">
-              <Key className="w-4 h-4" />
-              Your Key to Dubai Real Estate
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-500 text-sm font-medium mb-8">
+            <Key className="w-4 h-4" />
+            Free Calculator — No Signup Required
+          </div>
+          
+          {/* Main Headline - NEW */}
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+            Avoid Risky Dubai Off-Plan Deals
+            <span className="text-gold-gradient block mt-2">Before You Commit</span>
+          </h1>
+          
+          {/* Subheadline - NEW */}
+          <p className="text-xl text-midnight-300 mb-10 max-w-2xl mx-auto">
+            A free calculator that shows whether you can actually afford an off-plan property — based on cash flow, not hype.
+          </p>
+          
+          {/* Single CTA - NEW */}
+          <Link 
+            href="/calculator"
+            className="inline-flex items-center gap-3 btn-gold text-lg px-10 py-5 rounded-xl gold-glow"
+          >
+            <Calculator className="w-6 h-6" />
+            Calculate Your DubiKey Score — Free
+            <ArrowRight className="w-5 h-5" />
+          </Link>
+
+          {/* Trust indicators */}
+          <div className="flex items-center justify-center gap-6 mt-8 text-sm text-midnight-400">
+            <span className="flex items-center gap-1"><CheckCircle className="w-4 h-4 text-emerald-400" /> Instant Results</span>
+            <span className="flex items-center gap-1"><CheckCircle className="w-4 h-4 text-emerald-400" /> 100% Free</span>
+            <span className="flex items-center gap-1"><CheckCircle className="w-4 h-4 text-emerald-400" /> No Registration</span>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works - NEW */}
+      <section className="py-20 px-4 bg-midnight-900/30">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl font-bold text-white text-center mb-4">
+            How It Works
+          </h2>
+          <p className="text-midnight-400 text-center mb-12 max-w-xl mx-auto">
+            Three simple steps to know if you can comfortably afford your dream property
+          </p>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Step 1 */}
+            <div className="text-center">
+              <div className="w-16 h-16 rounded-2xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-bold text-gold-500">1</span>
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-2">Enter Your Finances</h3>
+              <p className="text-midnight-400">Income, expenses, savings, and property details</p>
+            </div>
+            
+            {/* Step 2 */}
+            <div className="text-center">
+              <div className="w-16 h-16 rounded-2xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-bold text-gold-500">2</span>
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-2">Get Your Score</h3>
+              <p className="text-midnight-400">See a clear comfort score based on real numbers</p>
+            </div>
+            
+            {/* Step 3 */}
+            <div className="text-center">
+              <div className="w-16 h-16 rounded-2xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-bold text-gold-500">3</span>
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-2">Decide with Confidence</h3>
+              <p className="text-midnight-400">Know exactly where you stand before committing</p>
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div className="text-center mt-12">
+            <Link 
+              href="/calculator"
+              className="inline-flex items-center gap-2 btn-gold px-8 py-4 rounded-xl"
+            >
+              <Calculator className="w-5 h-5" />
+              Calculate Your DubiKey Score — Free
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* What DubiKey Is (and Isn't) - NEW TRUST SECTION */}
+      <section className="py-20 px-4">
+        <div className="max-w-4xl mx-auto">
+          <div className="card-dark rounded-2xl p-8 md:p-12">
+            <h2 className="text-2xl font-bold text-white mb-8 text-center">
+              What DubiKey Is <span className="text-midnight-400">(and Isn't)</span>
+            </h2>
+            
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* What it IS */}
+              <div>
+                <h3 className="text-lg font-semibold text-emerald-400 mb-4 flex items-center gap-2">
+                  <CheckCircle className="w-5 h-5" />
+                  What We Are
+                </h3>
+                <ul className="space-y-3 text-midnight-300">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-1" />
+                    <span>A free educational tool for property buyers</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-1" />
+                    <span>Data-driven affordability calculator</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-1" />
+                    <span>Transparent and unbiased analysis</span>
+                  </li>
+                </ul>
+              </div>
+              
+              {/* What it ISN'T */}
+              <div>
+                <h3 className="text-lg font-semibold text-red-400 mb-4 flex items-center gap-2">
+                  <Shield className="w-5 h-5" />
+                  What We're Not
+                </h3>
+                <ul className="space-y-3 text-midnight-300">
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-400 flex-shrink-0">✗</span>
+                    <span>Not a real estate broker</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-400 flex-shrink-0">✗</span>
+                    <span>No sales commissions involved</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-400 flex-shrink-0">✗</span>
+                    <span>No pressure to buy anything</span>
+                  </li>
+                </ul>
+              </div>
             </div>
 
-            {/* Main Heading */}
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 font-display animate-fade-in-up">
-              Make{' '}
-              <span className="text-gold-gradient">Smarter</span>
-              <br />
-              Property Decisions
-            </h1>
-
-            {/* Subheading */}
-            <p className="text-lg md:text-xl text-midnight-300 mb-10 max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-              DubiKey Score helps you instantly assess if you can comfortably afford your Dubai off-plan property — with expert insights and training.
+            {/* Disclaimer */}
+            <p className="text-center text-midnight-500 text-sm mt-8 pt-6 border-t border-midnight-700">
+              This tool provides general educational insights — not investment advice.
             </p>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-              <Link href="/calculator" className="btn-gold flex items-center gap-2 text-lg px-8 py-4">
-                <Calculator className="w-5 h-5" />
-                Try DubiKey Score — Free
-              </Link>
-              <Link href="/about" className="btn-outline flex items-center gap-2">
-                Learn More
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-
-            {/* Stats */}
-            <div className="mt-16 grid grid-cols-3 gap-8 max-w-lg mx-auto animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-              {stats.map((stat, index) => (
-                <div key={index} className="text-center">
-                  <div className="text-2xl md:text-3xl font-bold text-gold-500">{stat.value}</div>
-                  <div className="text-sm text-midnight-400">{stat.label}</div>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="py-20 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 font-display">
-              Everything You Need for{' '}
-              <span className="text-gold-gradient">Dubai Real Estate</span>
-            </h2>
-            <p className="text-midnight-400 max-w-2xl mx-auto">
-              Whether you&apos;re an investor looking to maximize returns or a broker starting your career, DubiKey has you covered.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
-              <div
-                key={index}
-                className="card-dark rounded-2xl p-8 hover:gold-glow transition-all duration-300 group"
-              >
-                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-gold-400/20 to-gold-600/20 flex items-center justify-center text-gold-500 mb-6 group-hover:scale-110 transition-transform">
-                  {feature.icon}
-                </div>
-                <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>
-                <p className="text-midnight-400 mb-6">{feature.description}</p>
-                <Link
-                  href={feature.href}
-                  className="inline-flex items-center gap-2 text-gold-500 font-medium hover:text-gold-400 transition-colors"
-                >
-                  {feature.cta}
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Calculator Preview Section */}
-      <section className="py-20 px-4 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-midnight-950 via-midnight-900/50 to-midnight-950" />
-        
-        <div className="relative max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Content */}
-            <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-sm font-medium mb-6">
-                <CheckCircle className="w-4 h-4" />
-                Free Tool
-              </div>
-              
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 font-display">
-                DubiKey Score
-              </h2>
-              
-              <p className="text-lg text-midnight-300 mb-8">
-                See if you can comfortably afford your Dubai off-plan property — instantly. Our calculator analyzes your finances and gives you a clear verdict.
-              </p>
-
-              <ul className="space-y-4 mb-8">
-                {benefits.map((benefit, index) => (
-                  <li key={index} className="flex items-center gap-3 text-midnight-300">
-                    <CheckCircle className="w-5 h-5 text-gold-500 flex-shrink-0" />
-                    {benefit}
-                  </li>
-                ))}
-              </ul>
-
-              <Link href="/calculator" className="btn-gold inline-flex items-center gap-2">
-                Try It Now — Free
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-
-            {/* Preview Card */}
-            <div className="relative">
-              <div className="card-dark rounded-2xl p-8 gold-glow">
-                <div className="text-center mb-6">
-                  <div className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-emerald-400/20 to-emerald-600/20 border-2 border-emerald-500/50 mb-4">
-                    <span className="text-3xl font-bold text-emerald-400">85</span>
-                  </div>
-                  <div className="badge-green inline-block">GO AHEAD</div>
-                </div>
-                
-                <div className="space-y-4">
-                  <div className="flex justify-between items-center py-3 border-b border-midnight-700">
-                    <span className="text-midnight-400">Property Price</span>
-                    <span className="text-white font-semibold">1,200,000 AED</span>
-                  </div>
-                  <div className="flex justify-between items-center py-3 border-b border-midnight-700">
-                    <span className="text-midnight-400">Monthly Payment</span>
-                    <span className="text-white font-semibold">15,000 AED</span>
-                  </div>
-                  <div className="flex justify-between items-center py-3 border-b border-midnight-700">
-                    <span className="text-midnight-400">Risk Level</span>
-                    <span className="text-emerald-400 font-semibold">Low</span>
-                  </div>
-                  <div className="flex justify-between items-center py-3">
-                    <span className="text-midnight-400">Rental Coverage</span>
-                    <span className="text-gold-500 font-semibold">42%</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonial Section */}
-      <section className="py-20 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="flex justify-center gap-1 mb-6">
-            {[...Array(5)].map((_, i) => (
-              <Star key={i} className="w-6 h-6 text-gold-500 fill-gold-500" />
-            ))}
-          </div>
+      <section className="py-20 px-4 bg-midnight-900/30">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl font-bold text-white text-center mb-4">
+            Why Use DubiKey Score?
+          </h2>
+          <p className="text-midnight-400 text-center mb-12 max-w-xl mx-auto">
+            Make informed decisions with clarity and confidence
+          </p>
           
-          <blockquote className="text-2xl md:text-3xl text-white font-display italic mb-8">
-            &ldquo;DubiKey Score saved me from a risky investment. The analysis was spot-on and helped me find a better option.&rdquo;
-          </blockquote>
-          
-          <div className="flex items-center justify-center gap-4">
-            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center text-midnight-950 font-bold">
-              AH
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="card-dark rounded-xl p-6">
+              <div className="w-12 h-12 rounded-lg bg-emerald-500/10 flex items-center justify-center mb-4">
+                <Calculator className="w-6 h-6 text-emerald-400" />
+              </div>
+              <h3 className="text-lg font-semibold text-white mb-2">Cash Flow Analysis</h3>
+              <p className="text-midnight-400 text-sm">See exactly how the property fits your monthly budget — before and after handover</p>
             </div>
-            <div className="text-left">
-              <div className="text-white font-semibold">Ahmed H.</div>
-              <div className="text-midnight-400 text-sm">Property Investor, Dubai</div>
+
+            <div className="card-dark rounded-xl p-6">
+              <div className="w-12 h-12 rounded-lg bg-amber-500/10 flex items-center justify-center mb-4">
+                <Shield className="w-6 h-6 text-amber-400" />
+              </div>
+              <h3 className="text-lg font-semibold text-white mb-2">Risk Assessment</h3>
+              <p className="text-midnight-400 text-sm">Clear Go/Review/Stop recommendations based on your unique financial situation</p>
+            </div>
+
+            <div className="card-dark rounded-xl p-6">
+              <div className="w-12 h-12 rounded-lg bg-blue-500/10 flex items-center justify-center mb-4">
+                <Zap className="w-6 h-6 text-blue-400" />
+              </div>
+              <h3 className="text-lg font-semibold text-white mb-2">Instant Results</h3>
+              <p className="text-midnight-400 text-sm">Get your personalized score in seconds — no waiting, no signup required</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Social Proof - SIMPLIFIED */}
+      <section className="py-16 px-4">
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="text-midnight-400 text-lg">
+            Used by early-stage investors exploring Dubai off-plan opportunities
+          </p>
+        </div>
+      </section>
+
+      {/* Final CTA */}
       <section className="py-20 px-4">
-        <div className="max-w-4xl mx-auto">
-          <div className="card-dark rounded-3xl p-12 text-center gold-glow-intense relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-gold-500/5 to-transparent" />
-            
-            <div className="relative">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 font-display">
-                Ready to Make Your Move?
-              </h2>
-              <p className="text-midnight-300 mb-8 max-w-xl mx-auto">
-                Join hundreds of investors who make smarter property decisions with DubiKey.
-              </p>
-              <Link href="/calculator" className="btn-gold inline-flex items-center gap-2 text-lg px-8 py-4">
-                <Calculator className="w-5 h-5" />
-                Calculate Your Score — Free
-              </Link>
-            </div>
-          </div>
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            Ready to Check Your Property?
+          </h2>
+          <p className="text-midnight-300 text-lg mb-8">
+            Find out in 2 minutes if your target property fits your financial comfort zone.
+          </p>
+          <Link 
+            href="/calculator"
+            className="inline-flex items-center gap-3 btn-gold text-lg px-10 py-5 rounded-xl gold-glow"
+          >
+            <Calculator className="w-6 h-6" />
+            Calculate Your DubiKey Score — Free
+          </Link>
+          
+          {/* Educational Disclaimer */}
+          <p className="text-midnight-500 text-sm mt-6">
+            This tool provides general educational insights — not investment advice.
+          </p>
         </div>
       </section>
 
