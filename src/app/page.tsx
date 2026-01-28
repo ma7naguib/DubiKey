@@ -7,34 +7,34 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <Navbar />
-      
+
       {/* Hero Section - NEW */}
       <section className="relative pt-32 pb-20 px-4 overflow-hidden">
         {/* Background decoration */}
         <div className="absolute inset-0 dubai-pattern opacity-30" />
         <div className="absolute top-20 left-1/4 w-72 h-72 bg-gold-500/10 rounded-full blur-3xl" />
         <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-gold-500/5 rounded-full blur-3xl" />
-        
+
         <div className="max-w-4xl mx-auto text-center relative z-10">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-500 text-sm font-medium mb-8">
             <Key className="w-4 h-4" />
             Free Calculator — No Signup Required
           </div>
-          
+
           {/* Main Headline - NEW */}
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
             Avoid Risky Dubai Off-Plan Deals
             <span className="text-gold-gradient block mt-2">Before You Commit</span>
           </h1>
-          
+
           {/* Subheadline - NEW */}
           <p className="text-xl text-midnight-300 mb-10 max-w-2xl mx-auto">
             A free calculator that shows whether you can actually afford an off-plan property — based on cash flow, not hype.
           </p>
-          
+
           {/* Single CTA - NEW */}
-          <Link 
+          <Link
             href="/calculator"
             className="inline-flex items-center gap-3 btn-gold text-lg px-10 py-5 rounded-xl gold-glow"
           >
@@ -61,7 +61,7 @@ export default function Home() {
           <p className="text-midnight-400 text-center mb-12 max-w-xl mx-auto">
             Three simple steps to know if you can comfortably afford your dream property
           </p>
-          
+
           <div className="grid md:grid-cols-3 gap-8">
             {/* Step 1 */}
             <div className="text-center">
@@ -71,7 +71,7 @@ export default function Home() {
               <h3 className="text-xl font-semibold text-white mb-2">Enter Your Finances</h3>
               <p className="text-midnight-400">Income, expenses, savings, and property details</p>
             </div>
-            
+
             {/* Step 2 */}
             <div className="text-center">
               <div className="w-16 h-16 rounded-2xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center mx-auto mb-4">
@@ -80,7 +80,7 @@ export default function Home() {
               <h3 className="text-xl font-semibold text-white mb-2">Get Your Score</h3>
               <p className="text-midnight-400">See a clear comfort score based on real numbers</p>
             </div>
-            
+
             {/* Step 3 */}
             <div className="text-center">
               <div className="w-16 h-16 rounded-2xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center mx-auto mb-4">
@@ -93,7 +93,7 @@ export default function Home() {
 
           {/* CTA */}
           <div className="text-center mt-12">
-            <Link 
+            <Link
               href="/calculator"
               className="inline-flex items-center gap-2 btn-gold px-8 py-4 rounded-xl"
             >
@@ -109,9 +109,9 @@ export default function Home() {
         <div className="max-w-4xl mx-auto">
           <div className="card-dark rounded-2xl p-8 md:p-12">
             <h2 className="text-2xl font-bold text-white mb-8 text-center">
-              What DubiKey Is <span className="text-midnight-400">(and Isn't)</span>
+              What DubiKey Is <span className="text-midnight-400">(and Isn&apos;t)</span>
             </h2>
-            
+
             <div className="grid md:grid-cols-2 gap-8">
               {/* What it IS */}
               <div>
@@ -134,12 +134,12 @@ export default function Home() {
                   </li>
                 </ul>
               </div>
-              
+
               {/* What it ISN'T */}
               <div>
                 <h3 className="text-lg font-semibold text-red-400 mb-4 flex items-center gap-2">
                   <Shield className="w-5 h-5" />
-                  What We're Not
+                  What We&apos;re Not
                 </h3>
                 <ul className="space-y-3 text-midnight-300">
                   <li className="flex items-start gap-2">
@@ -175,7 +175,7 @@ export default function Home() {
           <p className="text-midnight-400 text-center mb-12 max-w-xl mx-auto">
             Make informed decisions with clarity and confidence
           </p>
-          
+
           <div className="grid md:grid-cols-3 gap-6">
             <div className="card-dark rounded-xl p-6">
               <div className="w-12 h-12 rounded-lg bg-emerald-500/10 flex items-center justify-center mb-4">
@@ -222,14 +222,14 @@ export default function Home() {
           <p className="text-midnight-300 text-lg mb-8">
             Find out in 2 minutes if your target property fits your financial comfort zone.
           </p>
-          <Link 
+          <Link
             href="/calculator"
             className="inline-flex items-center gap-3 btn-gold text-lg px-10 py-5 rounded-xl gold-glow"
           >
             <Calculator className="w-6 h-6" />
             Calculate Your DubiKey Score — Free
           </Link>
-          
+
           {/* Educational Disclaimer */}
           <p className="text-midnight-500 text-sm mt-6">
             This tool provides general educational insights — not investment advice.
