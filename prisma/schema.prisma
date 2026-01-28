@@ -1,0 +1,80 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  clerkId       String    @unique
+  email         String    @unique
+  name          String?
+  imageUrl      String?
+  plan          Plan      @default(FREE)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  
+  calculations  Calculation[]
+  consultations Consultation[]
+}
+
+model Calculation {
+  id              String   @id @default(cuid())
+  userId          String
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  propertyPrice   Float
+  dubikeyScore    Int
+  verdict         String
+  inputData       Json
+  resultData      Json
+  
+  createdAt       DateTime @default(now())
+}
+
+model Consultation {
+  id              String   @id @default(cuid())
+  userId          String
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  type            ConsultationType
+  status          ConsultationStatus @default(PENDING)
+  scheduledAt     DateTime?
+  notes           String?
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model Lead {
+  id            String   @id @default(cuid())
+  email         String
+  name          String?
+  phone         String?
+  source        String?
+  calculationId String?
+  
+  createdAt     DateTime @default(now())
+}
+
+enum Plan {
+  FREE
+  PRO
+  LIFETIME
+}
+
+enum ConsultationType {
+  INVESTMENT
+  BROKER_TRAINING
+  GENERAL
+}
+
+enum ConsultationStatus {
+  PENDING
+  SCHEDULED
+  COMPLETED
+  CANCELLED
+}
