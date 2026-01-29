@@ -10,9 +10,9 @@ export const metadata: Metadata = {
   authors: [{ name: 'DubiKey' }],
   icons: {
     icon: [
-      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.png', type: 'image/png' },
     ],
-    apple: '/favicon.svg',
+    apple: '/favicon.png',
   },
   openGraph: {
     title: 'DubiKey - Dubai Off-Plan Property Calculator',
