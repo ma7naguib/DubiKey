@@ -1,0 +1,7 @@
+export { default as Step1Goal } from './Step1Goal'
+export { default as Step2Property } from './Step2Property'
+export { default as Step3Income } from './Step3Income'
+export { default as Step4Savings } from './Step4Savings'
+export { default as Step5PaymentPlan } from './Step5PaymentPlan'
+export { default as Step6Fees } from './Step6Fees'
+export { default as Step7Results } from './Step7Results'

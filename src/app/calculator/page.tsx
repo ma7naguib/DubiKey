@@ -1,6 +1,6 @@
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-import DubikeyCalculator from '@/components/DubikeyCalculator'
+import { DubikeyCalculator } from '@/components/calculator'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
