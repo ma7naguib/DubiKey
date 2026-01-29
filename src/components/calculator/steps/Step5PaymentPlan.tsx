@@ -1,6 +1,6 @@
 'use client'
 
-import { CheckCircle, Target } from 'lucide-react'
+import { CheckCircle, Target, Sparkles } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { CalculatorInputs, PaymentPreset } from '../types'
 import { toNum } from '../calculations'
@@ -22,6 +22,40 @@ export default function Step5PaymentPlan({
   paymentPlanRemaining,
 }: Step5PaymentPlanProps) {
   const showPostMonths = toNum(inputs.postHandoverPct) > 0
+
+  // Check which field is empty (for auto-fill button)
+  const getEmptyField = (): keyof CalculatorInputs | null => {
+    const fields: { key: keyof CalculatorInputs; val: string }[] = [
+      { key: 'downPaymentPct', val: inputs.downPaymentPct },
+      { key: 'duringConstructionPct', val: inputs.duringConstructionPct },
+      { key: 'onHandoverPct', val: inputs.onHandoverPct },
+      { key: 'postHandoverPct', val: inputs.postHandoverPct },
+    ]
+    
+    const filled = fields.filter(f => f.val !== '')
+    const empty = fields.filter(f => f.val === '')
+    
+    // Show button only if exactly 3 are filled and 1 is empty
+    if (filled.length === 3 && empty.length === 1 && paymentPlanRemaining >= 0 && paymentPlanRemaining <= 100) {
+      return empty[0].key
+    }
+    return null
+  }
+
+  const emptyField = getEmptyField()
+
+  const handleAutoFill = () => {
+    if (emptyField && paymentPlanRemaining >= 0) {
+      onUpdate(emptyField, String(paymentPlanRemaining))
+    }
+  }
+
+  const fieldLabels: Record<string, string> = {
+    downPaymentPct: 'Down Payment',
+    duringConstructionPct: 'During Construction',
+    onHandoverPct: 'On Handover',
+    postHandoverPct: 'Post-Handover',
+  }
 
   return (
     <div className="space-y-6">
@@ -135,6 +169,17 @@ export default function Step5PaymentPlan({
           </div>
         )}
       </div>
+
+      {/* Auto-fill Button */}
+      {emptyField && paymentPlanRemaining > 0 && (
+        <button
+          onClick={handleAutoFill}
+          className="w-full py-3 px-4 rounded-lg bg-gold-500/10 border border-gold-500/30 text-gold-400 hover:bg-gold-500/20 transition-colors flex items-center justify-center gap-2"
+        >
+          <Sparkles className="w-4 h-4" />
+          Auto-fill {fieldLabels[emptyField]} with {paymentPlanRemaining}%
+        </button>
+      )}
 
       {/* Total Indicator */}
       <div

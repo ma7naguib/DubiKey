@@ -97,33 +97,6 @@ export function useCalculator() {
 
   const paymentPlanRemaining = 100 - paymentPlanTotal
 
-  // Auto-calculate 4th value if 3 are filled
-  useEffect(() => {
-    const values = [
-      { key: 'downPaymentPct' as const, val: inputs.downPaymentPct },
-      { key: 'duringConstructionPct' as const, val: inputs.duringConstructionPct },
-      { key: 'onHandoverPct' as const, val: inputs.onHandoverPct },
-      { key: 'postHandoverPct' as const, val: inputs.postHandoverPct },
-    ]
-
-    const filled = values.filter(v => v.val !== '' && v.val !== '0')
-    const empty = values.filter(v => v.val === '')
-
-    if (filled.length === 3 && empty.length === 1) {
-      const filledSum = filled.reduce((sum, v) => sum + toNum(v.val), 0)
-      const remaining = 100 - filledSum
-
-      if (remaining >= 0 && remaining <= 100) {
-        setInputs(prev => ({ ...prev, [empty[0].key]: String(remaining) }))
-      }
-    }
-  }, [
-    inputs.downPaymentPct,
-    inputs.duringConstructionPct,
-    inputs.onHandoverPct,
-    inputs.postHandoverPct,
-  ])
-
   // ========== STEP VALIDATION ==========
   const stepValidation: StepValidation = useMemo(
     () => ({
