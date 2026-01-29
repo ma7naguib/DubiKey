@@ -12,7 +12,7 @@ export default function Step2Property({ inputs, onUpdate }: Step2PropertyProps) 
     <div className="space-y-6">
       <div className="text-center mb-8">
         <h2 className="text-2xl font-bold text-white mb-2">Property Details</h2>
-        <p className="text-midnight-400">Tell us about the property you're considering</p>
+        <p className="text-midnight-400">Tell us about the property you&apos;re considering</p>
       </div>
 
       <div className="space-y-4">
