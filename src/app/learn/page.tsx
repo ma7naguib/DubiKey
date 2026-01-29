@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { BookOpen, Clock, ArrowRight, TrendingUp, Shield, Calculator } from 'lucide-react'
+import { BookOpen, Clock, ArrowRight, TrendingUp, Shield, Calculator, DollarSign } from 'lucide-react'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import { Metadata } from 'next'
@@ -26,7 +26,6 @@ const articles = [
     category: 'Payment Plans',
     readTime: '6 min read',
     icon: Calculator,
-    comingSoon: true,
   },
   {
     slug: 'hidden-costs-dubai-property',
@@ -34,8 +33,7 @@ const articles = [
     excerpt: 'DLD fees, service charges, agent commissions - all the costs nobody tells you about upfront.',
     category: 'Costs',
     readTime: '5 min read',
-    icon: TrendingUp,
-    comingSoon: true,
+    icon: DollarSign,
   },
   {
     slug: 'red-flags-off-plan',
@@ -44,7 +42,6 @@ const articles = [
     category: 'Risk',
     readTime: '7 min read',
     icon: Shield,
-    comingSoon: true,
   },
 ]
 
@@ -73,65 +70,35 @@ export default function LearnPage() {
           <div className="space-y-4">
             {articles.map((article) => (
               <article key={article.slug} className="group">
-                {article.comingSoon ? (
-                  <div className="card-dark rounded-xl p-6 opacity-60">
+                <Link href={`/learn/${article.slug}`}>
+                  <div className="card-dark rounded-xl p-6 hover:border-gold-500/40 transition-all">
                     <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-lg bg-midnight-700 flex items-center justify-center flex-shrink-0">
-                        <article.icon className="w-6 h-6 text-midnight-400" />
+                      <div className="w-12 h-12 rounded-lg bg-gold-500/10 flex items-center justify-center flex-shrink-0">
+                        <article.icon className="w-6 h-6 text-gold-500" />
                       </div>
                       <div className="flex-1">
                         <div className="flex items-center gap-2 mb-2">
-                          <span className="text-xs px-2 py-1 rounded bg-midnight-700 text-midnight-400">
+                          <span className="text-xs px-2 py-1 rounded bg-gold-500/10 text-gold-400">
                             {article.category}
                           </span>
-                          <span className="text-xs text-midnight-500 flex items-center gap-1">
+                          <span className="text-xs text-midnight-400 flex items-center gap-1">
                             <Clock className="w-3 h-3" />
                             {article.readTime}
                           </span>
-                          <span className="text-xs px-2 py-1 rounded bg-gold-500/10 text-gold-500">
-                            Coming Soon
-                          </span>
                         </div>
-                        <h2 className="text-lg font-semibold text-midnight-400 mb-2">
+                        <h2 className="text-lg font-semibold text-white mb-2 group-hover:text-gold-400 transition-colors">
                           {article.title}
                         </h2>
-                        <p className="text-midnight-500 text-sm">
+                        <p className="text-midnight-400 text-sm mb-3">
                           {article.excerpt}
                         </p>
+                        <span className="text-gold-500 text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
+                          Read article <ArrowRight className="w-4 h-4" />
+                        </span>
                       </div>
                     </div>
                   </div>
-                ) : (
-                  <Link href={`/learn/${article.slug}`}>
-                    <div className="card-dark rounded-xl p-6 hover:border-gold-500/40 transition-all">
-                      <div className="flex items-start gap-4">
-                        <div className="w-12 h-12 rounded-lg bg-gold-500/10 flex items-center justify-center flex-shrink-0">
-                          <article.icon className="w-6 h-6 text-gold-500" />
-                        </div>
-                        <div className="flex-1">
-                          <div className="flex items-center gap-2 mb-2">
-                            <span className="text-xs px-2 py-1 rounded bg-gold-500/10 text-gold-400">
-                              {article.category}
-                            </span>
-                            <span className="text-xs text-midnight-400 flex items-center gap-1">
-                              <Clock className="w-3 h-3" />
-                              {article.readTime}
-                            </span>
-                          </div>
-                          <h2 className="text-lg font-semibold text-white mb-2 group-hover:text-gold-400 transition-colors">
-                            {article.title}
-                          </h2>
-                          <p className="text-midnight-400 text-sm mb-3">
-                            {article.excerpt}
-                          </p>
-                          <span className="text-gold-500 text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
-                            Read article <ArrowRight className="w-4 h-4" />
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </Link>
-                )}
+                </Link>
               </article>
             ))}
           </div>
