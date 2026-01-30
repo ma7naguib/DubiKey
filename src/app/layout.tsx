@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { ClerkProvider } from '@clerk/nextjs'
 import { dark } from '@clerk/themes'
+import GoogleAnalytics from '@/components/GoogleAnalytics'
 import './globals.css'
 
 const baseUrl = 'https://www.dubikey.com'
@@ -26,7 +27,6 @@ export const metadata: Metadata = {
   creator: 'DubiKey',
   publisher: 'DubiKey',
   
-  // Favicon
   icons: {
     icon: [
       { url: '/favicon.png', type: 'image/png' },
@@ -34,7 +34,6 @@ export const metadata: Metadata = {
     apple: '/favicon.png',
   },
   
-  // Open Graph
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -52,7 +51,6 @@ export const metadata: Metadata = {
     ],
   },
   
-  // Twitter
   twitter: {
     card: 'summary_large_image',
     title: 'DubiKey - Dubai Off-Plan Property Calculator',
@@ -60,7 +58,6 @@ export const metadata: Metadata = {
     images: ['/og-image.png'],
   },
   
-  // Robots
   robots: {
     index: true,
     follow: true,
@@ -73,20 +70,11 @@ export const metadata: Metadata = {
     },
   },
   
-  // Verification (add your codes here)
-  verification: {
-    google: 'YOUR_GOOGLE_VERIFICATION_CODE', // من Google Search Console
-    // yandex: 'YOUR_YANDEX_CODE',
-    // bing: 'YOUR_BING_CODE',
-  },
-  
-  // Canonical
   alternates: {
     canonical: baseUrl,
   },
 }
 
-// JSON-LD Structured Data
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebApplication',
@@ -125,6 +113,7 @@ export default function RootLayout({
     >
       <html lang="en">
         <head>
+          <GoogleAnalytics />
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
