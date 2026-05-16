@@ -1,142 +1,243 @@
-import { Metadata } from 'next'
+import Link from 'next/link'
+import { Key, Shield, Calculator, ArrowRight, CheckCircle, Users, Zap } from 'lucide-react'
+import Navbar from '@/components/Navbar'
+import Footer from '@/components/Footer'
 
-export const metadata: Metadata = {
-  title: 'DubiKey Digital Solutions - Coming Soon',
-  description: 'Smart digital marketing solutions for modern businesses. Powerful automation, lead generation, and data-driven strategies.',
-}
-
-export default function ComingSoonPage() {
+export default function Home() {
   return (
-    <main className="min-h-screen bg-[#0a0a0f] flex items-center justify-center px-4 overflow-hidden relative">
-      {/* Animated Background */}
-      <div className="absolute inset-0">
-        {/* Gradient Orbs */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl animate-pulse delay-1000" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-600/10 rounded-full blur-3xl" />
-        
-        {/* Grid Pattern */}
-        <div 
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-                              linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-            backgroundSize: '50px 50px'
-          }}
-        />
-      </div>
-      
-      {/* Content */}
-      <div className="relative z-10 text-center max-w-3xl">
-        {/* Logo */}
-        <div className="flex items-center justify-center gap-4 mb-12">
-          {/* Icon */}
-          <div className="relative">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-600 flex items-center justify-center shadow-lg shadow-indigo-500/30">
-              {/* Abstract Marketing Icon */}
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M3 3V21H21" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M7 14L12 9L15 12L21 6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <circle cx="21" cy="6" r="2" fill="white"/>
-              </svg>
-            </div>
-            {/* Glow effect */}
-            <div className="absolute inset-0 w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 blur-xl opacity-50" />
+    <main className="min-h-screen">
+      <Navbar />
+
+      {/* Hero Section - NEW */}
+      <section className="relative pt-32 pb-20 px-4 overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 dubai-pattern opacity-30" />
+        <div className="absolute top-20 left-1/4 w-72 h-72 bg-gold-500/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-gold-500/5 rounded-full blur-3xl" />
+
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-500 text-sm font-medium mb-8">
+            <Key className="w-4 h-4" />
+            Free Calculator — No Signup Required
           </div>
-          
-          {/* Company Name */}
-          <div className="text-left">
-            <div className="text-2xl font-bold text-white tracking-tight">
-              DubiKey
+
+          {/* Main Headline - NEW */}
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+            Avoid Risky Dubai Off-Plan Deals
+            <span className="text-gold-gradient block mt-2">Before You Commit</span>
+          </h1>
+
+          {/* Subheadline - NEW */}
+          <p className="text-xl text-midnight-300 mb-10 max-w-2xl mx-auto">
+            A free calculator that shows whether you can actually afford an off-plan property — based on cash flow, not hype.
+          </p>
+
+          {/* Single CTA - NEW */}
+          <Link
+            href="/calculator"
+            className="inline-flex items-center gap-3 btn-gold text-lg px-10 py-5 rounded-xl gold-glow"
+          >
+            <Calculator className="w-6 h-6" />
+            Calculate Your DubiKey Score — Free
+            <ArrowRight className="w-5 h-5" />
+          </Link>
+
+          {/* Trust indicators */}
+          <div className="flex items-center justify-center gap-6 mt-8 text-sm text-midnight-400">
+            <span className="flex items-center gap-1"><CheckCircle className="w-4 h-4 text-emerald-400" /> Instant Results</span>
+            <span className="flex items-center gap-1"><CheckCircle className="w-4 h-4 text-emerald-400" /> 100% Free</span>
+            <span className="flex items-center gap-1"><CheckCircle className="w-4 h-4 text-emerald-400" /> No Registration</span>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works - NEW */}
+      <section className="py-20 px-4 bg-midnight-900/30">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl font-bold text-white text-center mb-4">
+            How It Works
+          </h2>
+          <p className="text-midnight-400 text-center mb-12 max-w-xl mx-auto">
+            Three simple steps to know if you can comfortably afford your dream property
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Step 1 */}
+            <div className="text-center">
+              <div className="w-16 h-16 rounded-2xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-bold text-gold-500">1</span>
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-2">Enter Your Finances</h3>
+              <p className="text-midnight-400">Income, expenses, savings, and property details</p>
             </div>
-            <div className="text-sm font-medium text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 tracking-wide">
-              Digital Solutions
+
+            {/* Step 2 */}
+            <div className="text-center">
+              <div className="w-16 h-16 rounded-2xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-bold text-gold-500">2</span>
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-2">Get Your Score</h3>
+              <p className="text-midnight-400">See a clear comfort score based on real numbers</p>
+            </div>
+
+            {/* Step 3 */}
+            <div className="text-center">
+              <div className="w-16 h-16 rounded-2xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-bold text-gold-500">3</span>
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-2">Decide with Confidence</h3>
+              <p className="text-midnight-400">Know exactly where you stand before committing</p>
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div className="text-center mt-12">
+            <Link
+              href="/calculator"
+              className="inline-flex items-center gap-2 btn-gold px-8 py-4 rounded-xl"
+            >
+              <Calculator className="w-5 h-5" />
+              Calculate Your DubiKey Score — Free
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* What DubiKey Is (and Isn't) - NEW TRUST SECTION */}
+      <section className="py-20 px-4">
+        <div className="max-w-4xl mx-auto">
+          <div className="card-dark rounded-2xl p-8 md:p-12">
+            <h2 className="text-2xl font-bold text-white mb-8 text-center">
+              What DubiKey Is <span className="text-midnight-400">(and Isn&apos;t)</span>
+            </h2>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* What it IS */}
+              <div>
+                <h3 className="text-lg font-semibold text-emerald-400 mb-4 flex items-center gap-2">
+                  <CheckCircle className="w-5 h-5" />
+                  What We Are
+                </h3>
+                <ul className="space-y-3 text-midnight-300">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-1" />
+                    <span>A free educational tool for property buyers</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-1" />
+                    <span>Data-driven affordability calculator</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-1" />
+                    <span>Transparent and unbiased analysis</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* What it ISN'T */}
+              <div>
+                <h3 className="text-lg font-semibold text-red-400 mb-4 flex items-center gap-2">
+                  <Shield className="w-5 h-5" />
+                  What We&apos;re Not
+                </h3>
+                <ul className="space-y-3 text-midnight-300">
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-400 flex-shrink-0">✗</span>
+                    <span>Not a real estate broker</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-400 flex-shrink-0">✗</span>
+                    <span>No sales commissions involved</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-400 flex-shrink-0">✗</span>
+                    <span>No pressure to buy anything</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Disclaimer */}
+            <p className="text-center text-midnight-500 text-sm mt-8 pt-6 border-t border-midnight-700">
+              This tool provides general educational insights — not investment advice.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-20 px-4 bg-midnight-900/30">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl font-bold text-white text-center mb-4">
+            Why Use DubiKey Score?
+          </h2>
+          <p className="text-midnight-400 text-center mb-12 max-w-xl mx-auto">
+            Make informed decisions with clarity and confidence
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="card-dark rounded-xl p-6">
+              <div className="w-12 h-12 rounded-lg bg-emerald-500/10 flex items-center justify-center mb-4">
+                <Calculator className="w-6 h-6 text-emerald-400" />
+              </div>
+              <h3 className="text-lg font-semibold text-white mb-2">Cash Flow Analysis</h3>
+              <p className="text-midnight-400 text-sm">See exactly how the property fits your monthly budget — before and after handover</p>
+            </div>
+
+            <div className="card-dark rounded-xl p-6">
+              <div className="w-12 h-12 rounded-lg bg-amber-500/10 flex items-center justify-center mb-4">
+                <Shield className="w-6 h-6 text-amber-400" />
+              </div>
+              <h3 className="text-lg font-semibold text-white mb-2">Risk Assessment</h3>
+              <p className="text-midnight-400 text-sm">Clear Go/Review/Stop recommendations based on your unique financial situation</p>
+            </div>
+
+            <div className="card-dark rounded-xl p-6">
+              <div className="w-12 h-12 rounded-lg bg-blue-500/10 flex items-center justify-center mb-4">
+                <Zap className="w-6 h-6 text-blue-400" />
+              </div>
+              <h3 className="text-lg font-semibold text-white mb-2">Instant Results</h3>
+              <p className="text-midnight-400 text-sm">Get your personalized score in seconds — no waiting, no signup required</p>
             </div>
           </div>
         </div>
+      </section>
 
-        {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white/70 text-sm font-medium mb-8 backdrop-blur-sm">
-          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-          Launching Soon
+      {/* Social Proof - SIMPLIFIED */}
+      <section className="py-16 px-4">
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="text-midnight-400 text-lg">
+            Used by early-stage investors exploring Dubai off-plan opportunities
+          </p>
         </div>
+      </section>
 
-        {/* Heading */}
-        <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
-          Coming{' '}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400">
-            Soon
-          </span>
-        </h1>
+      {/* Final CTA */}
+      <section className="py-20 px-4">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            Ready to Check Your Property?
+          </h2>
+          <p className="text-midnight-300 text-lg mb-8">
+            Find out in 2 minutes if your target property fits your financial comfort zone.
+          </p>
+          <Link
+            href="/calculator"
+            className="inline-flex items-center gap-3 btn-gold text-lg px-10 py-5 rounded-xl gold-glow"
+          >
+            <Calculator className="w-6 h-6" />
+            Calculate Your DubiKey Score — Free
+          </Link>
 
-        {/* Description */}
-        <p className="text-xl text-white/60 mb-12 leading-relaxed max-w-2xl mx-auto">
-          Smart digital marketing solutions for modern businesses.
-          <br />
-          We&apos;re putting the finishing touches on something great.
-        </p>
-
-        {/* Features */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-14">
-          {/* Marketing Tools */}
-          <div className="group p-6 rounded-2xl bg-white/[0.03] border border-white/10 backdrop-blur-sm hover:bg-white/[0.05] hover:border-white/20 transition-all duration-300">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/20 to-blue-600/20 flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#60a5fa" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M2 17L12 22L22 17" stroke="#60a5fa" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M2 12L12 17L22 12" stroke="#60a5fa" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </div>
-            <div className="text-white font-semibold mb-1">Marketing Tools</div>
-            <div className="text-white/50 text-sm">Powerful automation & analytics</div>
-          </div>
-
-          {/* Lead Generation */}
-          <div className="group p-6 rounded-2xl bg-white/[0.03] border border-white/10 backdrop-blur-sm hover:bg-white/[0.05] hover:border-white/20 transition-all duration-300">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500/20 to-indigo-600/20 flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21" stroke="#818cf8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <circle cx="9" cy="7" r="4" stroke="#818cf8" strokeWidth="2"/>
-                <path d="M23 21V19C22.9993 18.1137 22.7044 17.2528 22.1614 16.5523C21.6184 15.8519 20.8581 15.3516 20 15.13" stroke="#818cf8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M16 3.13C16.8604 3.35031 17.623 3.85071 18.1676 4.55232C18.7122 5.25392 19.0078 6.11683 19.0078 7.005C19.0078 7.89318 18.7122 8.75608 18.1676 9.45769C17.623 10.1593 16.8604 10.6597 16 10.88" stroke="#818cf8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </div>
-            <div className="text-white font-semibold mb-1">Lead Generation</div>
-            <div className="text-white/50 text-sm">Smart systems & strategies</div>
-          </div>
-
-          {/* Expert Insights */}
-          <div className="group p-6 rounded-2xl bg-white/[0.03] border border-white/10 backdrop-blur-sm hover:bg-white/[0.05] hover:border-white/20 transition-all duration-300">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-purple-600/20 flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M21 16V8C20.9996 7.64927 20.9071 7.30481 20.7315 7.00116C20.556 6.69751 20.3037 6.44536 20 6.27L13 2.27C12.696 2.09446 12.3511 2.00205 12 2.00205C11.6489 2.00205 11.304 2.09446 11 2.27L4 6.27C3.69626 6.44536 3.44398 6.69751 3.26846 7.00116C3.09294 7.30481 3.00036 7.64927 3 8V16C3.00036 16.3507 3.09294 16.6952 3.26846 16.9988C3.44398 17.3025 3.69626 17.5546 4 17.73L11 21.73C11.304 21.9055 11.6489 21.998 12 21.998C12.3511 21.998 12.696 21.9055 13 21.73L20 17.73C20.3037 17.5546 20.556 17.3025 20.7315 16.9988C20.9071 16.6952 20.9996 16.3507 21 16Z" stroke="#a855f7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M12 12L12 22" stroke="#a855f7" strokeWidth="2"/>
-                <path d="M12 12L21 7" stroke="#a855f7" strokeWidth="2"/>
-                <path d="M12 12L3 7" stroke="#a855f7" strokeWidth="2"/>
-              </svg>
-            </div>
-            <div className="text-white font-semibold mb-1">Expert Insights</div>
-            <div className="text-white/50 text-sm">Data-driven guidance</div>
-          </div>
+          {/* Educational Disclaimer */}
+          <p className="text-midnight-500 text-sm mt-6">
+            This tool provides general educational insights — not investment advice.
+          </p>
         </div>
+      </section>
 
-        {/* Contact */}
-        <a 
-          href="mailto:hello@dubikey.com" 
-          className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium hover:shadow-lg hover:shadow-purple-500/25 hover:scale-105 transition-all duration-300"
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            <path d="M22 6L12 13L2 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-          hello@dubikey.com
-        </a>
-
-        {/* Copyright */}
-        <p className="mt-12 text-white/30 text-sm">
-          © {new Date().getFullYear()} DubiKey Digital Solutions. All rights reserved.
-        </p>
-      </div>
+      <Footer />
     </main>
   )
 }
